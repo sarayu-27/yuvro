@@ -1,0 +1,159 @@
+
+.sts-registration {
+    
+    /* Form container styling */
+    &.form-container {
+      background-color: #e6e6e6;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      max-width: 90%;
+      margin: 50px auto; /* Adjust margin-top to place the form some distance from the top */
+      /* You can adjust the margin-top value based on the desired position */
+    }
+    
+    h2 {
+      text-align: center;
+      color: #005f73;
+      margin-bottom: 30px;
+    }
+    
+    /* Form layout */
+    .registration-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    /* Form rows */
+    .form-row {
+      display: flex;
+      align-items: center;
+      gap: 20px; 
+    }
+    
+    .form-row label {
+      width: 25%; 
+      font-size: 14px;
+      color: #333;
+      text-align: left;
+    }
+    
+    .form-row input,
+    .form-row select {
+      width: 70%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      box-sizing: border-box;
+    }
+    
+    .form-row input:focus,
+    .form-row select:focus {
+      border-color: #66b3ff; 
+      outline: none;
+    }
+    
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    select option {
+      color: #333;
+    }
+    
+    /* Ensure inputs for 'Other' are displayed under their respective fields */
+    .other-input {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+    }
+    
+    .other-input label {
+      width: 100%;
+      font-size: 14px;
+      color: #333;
+    }
+    
+    .other-input input {
+      width: 100%;
+    }
+    
+    .error {
+      color: red;
+      font-size: 10px;
+      margin-top: 5px;
+      display: block;
+    }
+    
+    
+    
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .modal-content button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    
+    .modal-content button:hover {
+      background-color: #0056b3;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    }

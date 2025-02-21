@@ -1,21 +1,18 @@
 import { useState } from "react";
 import './CreatePassword.scss';
+import { useNavigate } from "react-router-dom";
 
 function CreatePassword() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
   });
-
-  const [error, setError] = useState({
-    passwordError: "",
-    confirmPasswordError: "",
-  });
+  const [error, setError] = useState({});
 
   const validatePassword = (password) => {
-    return /^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/.test(password)
-      ? ""
-      : "Password must be at least 8 characters long and include at least 1 special symbol.";
+    const isValid = /^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/.test(password);
+    return isValid ? "" : "Password must be at least 8 characters long and include at least 1 special symbol.";
   };
 
   const handleChange = (e) => {
@@ -24,16 +21,22 @@ function CreatePassword() {
     setFormData((prev) => {
       const updatedForm = { ...prev, [name]: value };
 
-      setError((prevError) => ({
-        ...prevError,
-        passwordError: name === "password" ? validatePassword(value) : prevError.passwordError,
-        confirmPasswordError: 
-          name === "confirmPassword" || (name === "password" && updatedForm.confirmPassword)
-            ? updatedForm.password === updatedForm.confirmPassword
-              ? ""
-              : "Passwords do not match!"
-            : prevError.confirmPasswordError,
-      }));
+      // Handle errors for both password and confirmPassword
+      setError((prevError) => {
+        const newErrors = { ...prevError };
+
+        if (name === "password") {
+          newErrors.passwordError = validatePassword(value);
+        }
+
+        if (name === "confirmPassword" || (name === "password" && updatedForm.confirmPassword)) {
+          newErrors.confirmPasswordError = updatedForm.password !== updatedForm.confirmPassword
+            ? "Passwords do not match!"
+            : "";
+        }
+
+        return newErrors;
+      });
 
       return updatedForm;
     });
@@ -41,20 +44,20 @@ function CreatePassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const passwordErrorMsg = validatePassword(formData.password);
-    const confirmPasswordErrorMsg = formData.password === formData.confirmPassword ? "" : "Passwords do not match!";
+    const passwordError = validatePassword(formData.password);
+    const confirmPasswordError = formData.password !== formData.confirmPassword ? "Passwords do not match!" : "";
 
     setError({
-      passwordError: passwordErrorMsg,
-      confirmPasswordError: confirmPasswordErrorMsg,
+      passwordError,
+      confirmPasswordError,
     });
 
-    if (passwordErrorMsg || confirmPasswordErrorMsg) {
+    if (passwordError || confirmPasswordError) {
       return;
     }
 
     alert("Password set successfully!");
+    navigate("/login");
   };
 
   return (

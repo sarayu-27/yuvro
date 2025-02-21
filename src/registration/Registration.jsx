@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Registration.scss";
 
 const branches = {
@@ -19,7 +20,32 @@ const specializations = Object.keys(branches);
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: currentYear - 2019 }, (_, i) => currentYear - i);
 
+const InputField = ({ label, name, type, value, onChange, error, required, options = [] }) => {
+  if (type === "select") {
+    return (
+      <div className="form-row">
+        <label>{label}</label>
+        <select name={name} value={value} onChange={onChange} required={required}>
+          <option value="" disabled>Select {label}</option>
+          {options.map((option) => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
+        {error && <small className="error">{error}</small>}
+      </div>
+    );
+  }
+  return (
+    <div className="form-row">
+      <label>{label}</label>
+      <input type={type} name={name} value={value} onChange={onChange} required={required} />
+      {error && <small className="error">{error}</small>}
+    </div>
+  );
+};
+
 const RegistrationForm = () => {
+  const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     fullName: "",
     mobile: "",
@@ -55,7 +81,6 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
     // try {
     //   const response = await fetch("http://localhost:8080/register", {
     //     method: "POST",
@@ -67,7 +92,8 @@ const RegistrationForm = () => {
     // } catch (error) {
     //   alert("Error: " + error.message);
     // }
-    console.log({formData});
+    console.log({ formData });
+    navigate("/create-password");
   };
 
   return (
@@ -80,80 +106,107 @@ const RegistrationForm = () => {
           { label: "Email ID", name: "email", type: "email" },
           { label: "Permanent Address", name: "address", type: "text" },
         ].map(({ label, name, type }) => (
-          <div className="form-row" key={name}>
-            <label>{label}</label>
-            <input type={type} name={name} value={formData[name]} onChange={handleChange} required />
-            {errors[name] && <small className="error">{errors[name]}</small>}
-          </div>
+          <InputField
+            key={name}
+            label={label}
+            name={name}
+            type={type}
+            value={formData[name]}
+            onChange={handleChange}
+            error={errors[name]}
+            required={true}
+          />
         ))}
 
-        <div className="form-row">
-          <label>City</label>
-          <select name="city" value={formData.city} onChange={handleChange} required>
-            <option value="" disabled>Select your city</option>
-            {cities.map((city) => (
-              <option key={city} value={city}>{city}</option>
-            ))}
-          </select>
-        </div>
+        <InputField
+          label="City"
+          name="city"
+          type="select"
+          value={formData.city}
+          onChange={handleChange}
+          options={cities}
+          error={errors.city}
+          required={true}
+        />
 
-        <div className="form-row">
-          <label>College</label>
-          <select name="college" value={formData.college} onChange={handleChange} required>
-            <option value="" disabled>Select your college</option>
-            {colleges.map(({ label, value }) => (
-              <option key={value} value={value}>{label}</option>
-            ))}
-          </select>
-          {formData.college === "other" && (
-            <input type="text" name="collegeOther" value={formData.collegeOther} onChange={handleChange} placeholder="Enter college name" required />
-          )}
-        </div>
-
-        <div className="form-row">
-          <label>Specialization/Degree</label>
-          <select name="specialization" value={formData.specialization} onChange={handleChange} required>
-            <option value="" disabled>Select specialization</option>
-            {specializations.map((spec) => (
-              <option key={spec} value={spec}>{spec}</option>
-            ))}
-          </select>
-          {formData.specialization === "other" && (
-            <input type="text" name="specializationOther" value={formData.specializationOther} onChange={handleChange} placeholder="Enter specialization" required />
-          )}
-        </div>
-
-        {formData.specialization && (
-          <div className="form-row">
-            <label>Branch</label>
-            <select name="branch" value={formData.branch} onChange={handleChange} required>
-              <option value="" disabled>Select branch</option>
-              {branches[formData.specialization]?.map((branch) => (
-                <option key={branch} value={branch}>{branch}</option>
-              ))}
-            </select>
-          </div>
+        <InputField
+          label="College"
+          name="college"
+          type="select"
+          value={formData.college}
+          onChange={handleChange}
+          options={colleges.map(({ label }) => label)}
+          error={errors.college}
+          required={true}
+        />
+        {formData.college === "other" && (
+          <InputField
+            label="Enter College Name"
+            name="collegeOther"
+            type="text"
+            value={formData.collegeOther}
+            onChange={handleChange}
+            error={errors.collegeOther}
+            required={true}
+          />
         )}
 
-        <div className="form-row">
-          <label>Pass Out Year</label>
-          <select name="passOutYear" value={formData.passOutYear} onChange={handleChange} required>
-            <option value="" disabled>Select pass-out year</option>
-            {years.map((year) => (
-              <option key={year} value={year}>{year}</option>
-            ))}
-          </select>
-        </div>
+        <InputField
+          label="Specialization/Degree"
+          name="specialization"
+          type="select"
+          value={formData.specialization}
+          onChange={handleChange}
+          options={specializations}
+          error={errors.specialization}
+          required={true}
+        />
+        {formData.specialization === "other" && (
+          <InputField
+            label="Enter Specialization"
+            name="specializationOther"
+            type="text"
+            value={formData.specializationOther}
+            onChange={handleChange}
+            error={errors.specializationOther}
+            required={true}
+          />
+        )}
 
-        <div className="form-row">
-          <label>Course</label>
-          <select name="course" value={formData.course} onChange={handleChange} required>
-            <option value="" disabled>Select course</option>
-            {courses.map((course) => (
-              <option key={course} value={course}>{course}</option>
-            ))}
-          </select>
-        </div>
+        {formData.specialization && (
+          <InputField
+            label="Branch"
+            name="branch"
+            type="select"
+            value={formData.branch}
+            onChange={handleChange}
+            options={branches[formData.specialization]}
+            error={errors.branch}
+            required={true}
+          />
+        )}
+
+        <InputField
+          label="Pass Out Year"
+          name="passOutYear"
+          type="select"
+          value={formData.passOutYear}
+          onChange={handleChange}
+          options={years}
+          error={errors.passOutYear}
+          required={true}
+        />
+
+        <InputField
+          label="Course"
+          name="course"
+          type="select"
+          value={formData.course}
+          onChange={handleChange}
+          options={courses}
+          error={errors.course}
+          required={true}
+        />
 
         <button type="submit">Submit</button>
       </form>

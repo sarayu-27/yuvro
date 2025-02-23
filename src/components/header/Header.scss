@@ -1,0 +1,28 @@
+.sts-header {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 0;
+    align-items: center;
+    box-shadow: 0px 0px 8px -4px rgba(20, 16, 41, 0.12), 0px 8px 8px -4px rgba(20, 16, 41, 0.05);
+    position: sticky;
+    width: 100%;
+    max-height: 68px;
+    z-index: 1;
+    top:0;
+    background: #FFFFFF;
+}
+.sts-logo {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 36px;
+    cursor: pointer;
+    color: #282828;
+    text-decoration: none;
+}
+.sts-user {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

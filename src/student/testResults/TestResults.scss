@@ -1,0 +1,91 @@
+.sts-test-results {
+    .student-details {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+     margin: 20px;
+     a {
+         color:#06959D;
+         padding:4px;
+         &:hover {
+             text-decoration: underline;
+             color: #06959D;
+             cursor: pointer;
+         }
+     }
+     &__card {
+         margin-top:20px;
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+         align-items: center;
+         gap: 16px;
+         .test-data {
+             display: flex;
+             justify-content: space-around;
+             width: 80%;
+             padding: 20px;
+             border-radius: 4px;
+             background: #EDF4F4;
+         }
+         .question-container {
+             padding:20px;
+             display: flex;
+             flex-direction: column;
+             align-items: flex-start;
+             p {
+                 margin-bottom: 0;
+             }
+           }
+           .options {
+             margin: 10px 0px;
+             display: flex;
+             flex-direction: column;
+             align-items: flex-start;
+           }
+           .option {
+             padding: 5px;
+             border-radius: 5px;
+             display: flex;
+           }
+           .option.correct {
+             color: #4da962;
+           }
+           .option.wrong {
+             color: #FF0404;
+           }
+           .answer-status {
+             i{
+                 font-size: 16px;
+             }
+           }
+           .correct-answer {
+             display: flex;
+             align-items: center;
+             color: green;
+           }
+           .wrong-answer {
+             display: flex;
+             align-items: center;
+             color: red;
+           }
+           .not-attempted {
+             display: flex;
+             align-items: center;
+             color: orange;
+           }
+           .explanation {
+             background: #e9f7ef;
+             padding: 10px;
+             margin-top: 10px;
+             border-radius: 5px;
+           }
+           .student-explanation {
+             margin-top: 10px;
+             display: flex;
+             flex-direction: column;
+             align-items: flex-start;
+           }
+     }
+ }

@@ -1,0 +1,39 @@
+.sts-course {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    &__image {
+        img {
+           width: 100%;
+           height: 160px;
+        }
+    }
+    &__title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        align-items: center;
+    }
+   &__modules {
+        display: flex;
+        padding: 32px;
+        flex-direction: column;
+        gap: 16px;
+        &-module {
+            display: flex;
+            gap: 16px;
+            button {
+                padding: 8px 60px;
+                background: none;
+                border: 2px solid #DDDDDD;
+                border-radius: 8px;
+                line-height: 36px;
+                font-size: 20px;
+                cursor: pointer;
+                font-weight: 400;
+           }
+        }
+   }
+}

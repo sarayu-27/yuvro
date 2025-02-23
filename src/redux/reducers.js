@@ -1,5 +1,5 @@
 const initialState = {
-    
+    user:''
   };
   
   const rootReducer = (state = initialState, action) => {

@@ -1,0 +1,90 @@
+.sts-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    &__title {
+        display: flex;
+        font-weight: 500;
+        font-size: 24px;
+        justify-content: center;
+        gap: 12px;
+    }
+    .sts-question {
+        font-weight: 500;
+        font-size:16px;
+        line-height: 24px;
+        &__options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            input {
+                border: 1px solid #282828;
+                cursor: pointer;
+            }
+        }
+        &__description {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-bottom: 16px;
+            // background: floralwhite;
+            
+            // border-radius: 8px;
+            .sts-question__explanation {
+                padding: 20px;
+                background-color: #DBEFDA;
+                border-radius: 8px;
+            }
+            p {
+                margin: 0;
+            }
+            .sts-question__wrong {
+                color: red;
+            }
+            .sts-question__correct {
+                color: #119411;
+            }
+        }
+    }
+    .sts-question__buttons {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 12px;
+        .sts-question__button {
+            &.previous {
+                background-color: #0184D0;
+            }
+            &.next,&.finish {
+                background-color: #06959D;
+            }
+            &.finish {
+                &[disabled]
+                {
+                    display: none;
+                }
+            }
+            // background: black;
+        color: white;
+        border: none;
+        padding: 4px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+            &[disabled] {
+                visibility: hidden;
+            }
+        }
+    }
+    .sts-questions__test {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+        .sts-questions__test-button {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background: #7F01A6;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+    }
+}

@@ -62,6 +62,7 @@ const RegistrationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  // eslint-disable-next-line no-unused-vars
   const [isRegistered, setIsRegistered] = useState(false);
 
   const handleChange = (e) => {

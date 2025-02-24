@@ -11,6 +11,36 @@ export const FACULTY_HEADER_MENU = [
     { label: 'Reports'},
 ];
 
+export const dashboardData = [
+    {
+      category: "",
+      data: [
+        { label: "Number of Assignments Completed", value: "5/20" },
+        { label: "Average Assignments Score", value: "60%" },
+      ],
+    },
+    {
+      category: "Practice Test",
+      data: [
+        { label: "Practice Test Completed", value: "1/3" },
+        { label: "Average Test Score", value: "60%" },
+      ],
+    },
+    {
+      category: "Mock Test",
+      data: [
+        { label: "Mock Test Completed", value: "1/3" },
+        { label: "Average Mock Test Score", value: "60%" },
+      ],
+    },
+    {
+      category: "Mock Interviews",
+      data: [
+        { label: "Mock Interviews Completed", value: "1/3" },
+        { label: "Mock Interviews Score", value: "70%" },
+      ],
+    },
+  ];
 
 // export async function fetchCourseByStudentId(studentId) {
 //     const response = await fetch(`http://localhost:8080/api/courses/${studentId}`);

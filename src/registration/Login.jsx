@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from '../redux/actions';
 
-// const user = useSelector(state => state.user); 
+// const user = useSelector(state => state.userType); 
 
 function Input({ label, id, value, onChange, type = "text", placeholder }) {
   return (
@@ -103,7 +103,7 @@ function Login() {
     //   console.error("Error during login:", error);
     //   alert("Something went wrong. Please try again.");
     // }
-    dispatch(setUser({user:formData.userType}))
+    dispatch(setUser({userType:formData.userType}))
     localStorage.setItem('user',JSON.stringify(formData ));
     switch (formData.userType) {
       case 'student':

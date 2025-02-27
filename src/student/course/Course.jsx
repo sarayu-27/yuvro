@@ -51,6 +51,7 @@ function Course() {
   }, []);
 
   const onCourseClick = (item) => {
+    localStorage && localStorage.setItem('ModuleDetails', JSON.stringify(item));
     console.log({item});
     navigate('/student/syllabus');
   };

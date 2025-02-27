@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useMemo } from "react";
 import "./Syllabus.scss";
-import { chapters, topics as topicsApi, practice_questions } from "../../data/data";
+import {chapters,  topics as topicsApi, practice_questions } from "../../data/data";
 import Instructions from "../instructions/Instructions";
 import Questions from "../practiceQuestions/Questions";
 
@@ -8,6 +8,14 @@ const Syllabus = () => {
   const course = { module_name: "java" }; 
   const { module_name } = course; 
 
+
+
+  //uncomment in real api 
+  // const { module_name = 'java' } = JSON.parse(localStorage?.getItem('ModuleDetails') || '{}');
+  // const chapters = Allchapters[module_name];
+  // console.log('all', Allchapters[module_name]);
+  
+  
   const [highlightedChapter, setHighlightedChapter] = useState(null);
   const [highlightedTopic, setHighlightedTopic] = useState(null);
   const [topics, setTopics] = useState([]);
@@ -15,35 +23,62 @@ const Syllabus = () => {
   const [toggle, setToggle] = useState(false);
 
   const onChapterClick = useCallback((id) => {
-    setTopics(topicsApi);
     setHighlightedChapter(id);
     setHighlightedTopic(null);
+    setTopics(topicsApi);  // Set topics on chapter click
     setToggle(false);
   }, []);
 
   const onTopicClick = useCallback((itemId) => {
-    setQuestions(practice_questions);
     setHighlightedTopic(itemId);
+    setQuestions(practice_questions); // Set questions on topic click
     setToggle(true);
   }, []);
 
-  const selectedChapter = chapters.find(ch => ch.id === highlightedChapter);
-  const selectedTopic = topics.find(tp => tp.id === highlightedTopic);
+  const selectedChapter = useMemo(() => chapters?.find(ch => ch.id === highlightedChapter), [highlightedChapter]);
+  const selectedTopic = useMemo(() => topics?.find(tp => tp.id === highlightedTopic), [highlightedTopic, topics]);
+
+  const renderTopicList = useMemo(() => {
+    return topics.map((item) => {
+      const isTopicHighlighted = highlightedTopic === item.id;
+      const isTopicLocked = item.practice_locked;
+      const itemClass = isTopicHighlighted ? "highlighted" : "";
+      const disabledClass = isTopicLocked ? "disabled" : "";
+      return (
+        <li
+          key={item.id}
+          onClick={() => !isTopicLocked && onTopicClick(item.id)}
+          className={`${itemClass} ${disabledClass}`}
+        >
+          {item.topic_name} {isTopicLocked && <i className="material-icons-outlined">lock</i>}
+        </li>
+      );
+    });
+  }, [highlightedTopic, topics]);
+
+  const renderChapterButtons = useMemo(() => {
+    return chapters?.map((item) => {
+      const isChapterHighlighted = highlightedChapter === item.id;
+      return (
+        <button
+          key={item.id}
+          onClick={() => onChapterClick(item.id)}
+          className={isChapterHighlighted ? "highlighted" : ""}
+        >
+          {item.syllabus_name}
+          {console.log('item', item.syllabus_name)
+          }
+        </button>
+      );
+    });
+  }, [highlightedChapter]);
 
   return (
     <div className="sts-syllabus">
       <div className="sts-syllabus__title">Practice - {module_name}</div>
 
       <div className="sts-syllabus__buttons">
-        {chapters.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => onChapterClick(item.id)}
-            className={highlightedChapter === item.id ? "highlighted" : ""}
-          >
-            {item.syllabus_name}
-          </button>
-        ))}
+        {renderChapterButtons}
       </div>
 
       <div className="sts-syllabus__content">
@@ -51,15 +86,7 @@ const Syllabus = () => {
           <aside className="sts-syllabus__content-left">
             <span>{selectedChapter?.syllabus_name}</span>
             <ul>
-              {topics.map((item) => (
-                <li
-                  key={item.id}
-                  onClick={() => !item.practice_locked && onTopicClick(item.id)}
-                  className={`${item.practice_locked ? "disabled" : ""} ${highlightedTopic === item.id ? "highlighted" : ""}`}
-                >
-                  {item.topic_name} {item.practice_locked && <i className="material-icons-outlined">lock</i>}
-                </li>
-              ))}
+              {renderTopicList}
             </ul>
           </aside>
         )}

@@ -151,6 +151,18 @@ export const chapters = [
     {"id":"advanced_java","module_id":"java","syllabus_name":"Advanced Java"}
 ];
 
+export const chaptersUI = [ 
+    {"id":"jUI_basics","module_id":"UI","syllabus_name":"UI Basics"},
+    {"id":"oops","module_id":"UI","syllabus_name":"OOPS"},
+    {"id":"advanced_UI","module_id":"UI","syllabus_name":"Advanced UI"}
+];
+
+export const chaptersSQL = [ 
+    {"id":"SQL","module_id":"SQL","syllabus_name":"SQL Basics"},
+    {"id":"oops","module_id":"SQL","syllabus_name":"OOPS"},
+    {"id":"advanced_SQL","module_id":"SQL","syllabus_name":"Advanced SQL"}
+];
+
 export const topics = [
     {"id":"arrays","topic_name":"Arrays","practice_locked":false},
     {"id":"strings","topic_name":"Strings","practice_locked":false},

@@ -1,0 +1,132 @@
+
+.sts-faculty--syllabus {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h2 {
+        margin-top: 16px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    &__button-row {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        .dropdown-button {
+            padding: 10px 15px;
+            background-color: #2A8890;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &:focus-visible {
+                outline: none;
+            }
+            option {
+                background-color: #FFFFFF;
+                color: #282828;
+            }
+            svg {
+                color: #282828;
+                margin-left: 8px;
+            }
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            // left: 0;
+            // width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 0;
+            z-index: 1;
+            width: 120px;
+            text-align: center;
+        }
+        
+        .dropdown-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+    }
+    .sts-faculty--syllabus__content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        gap: 32px;
+        .sts-faculty--syllabus-left__content {
+            width: 30%;
+            background: lightcyan;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .sts-syllabus__buttons {
+            flex-direction: column;
+            width: fit-content;
+            button {
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+        
+                &.active {  // Highlight selected chapter
+                    background-color: #007bff;
+                    color: white;
+                }
+            }
+        }
+        .sts-faculty--syllabus-right__content {
+            width: 50%;
+            background: #e6f3f3;
+            // align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            ul {
+                list-style: none;
+                margin:0;
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                li {
+                    padding: 8px;
+                    display: flex;
+                    justify-content: space-between;
+                    background: #f5f7f4;
+                    &:hover {
+                       background: #e9f3e9;
+                    }
+                    
+                        .finish-button {
+                            background: #9A09A1;
+                            border: none;
+                            padding: 4px 16px;
+                            border-radius: 8px;
+                            display: block;
+                            width: fit-content;
+                            color: #FFFFFF;
+                            cursor: pointer;
+                            &.finished {
+                                pointer-events: none;
+                                cursor: default;
+                                background: #a279a4;
+                            }
+                        }
+                    
+                }
+            }
+        }
+    }
+}

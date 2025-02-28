@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Menu from '../menu/Menu';
+import User from '../user/User';
 import './Header.scss';
 
 const LOGO = "Yuvro";
 
 const Header = () => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user) || JSON.parse(localStorage.getItem('user'));
 
   // Mapping of user roles to their corresponding routes
   const routes = {
@@ -16,7 +17,7 @@ const Header = () => {
   };
 
   const onLogoClick = () => {
-    const route = routes[user];
+    const route = routes[user.userType];
     if (route) {
       navigate(route);
     } else {
@@ -33,7 +34,7 @@ const Header = () => {
         <Menu/>
       </div>
       <div className="sts-user_container">
-        {/* <User/> */}
+        <User/>
       </div>
     </div>
   );

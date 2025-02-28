@@ -1,0 +1,87 @@
+.sts-attendance {
+    text-align: center;
+    h2 {
+        margin: 16px;
+        text-align: center;
+    }
+    &__date {
+        padding: 8px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        background: #2A8890;
+        color: #FFFFFF;
+        &:focus-visible {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    &__subject {
+        padding: 8px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        background: #2A8890;
+        color: #FFFFFF;
+        option {
+            background: #FFFFFF;
+            color: #282828;
+        }
+    }
+    &__table {
+        width: 80%;
+        margin: 20px auto;
+        text-align: left;
+        border-collapse: separate; 
+        border-spacing: 10px 15px;
+        tr {
+            background-color: #f2f2f2;
+        }
+        th {
+            padding: 10px; 
+            background: #EDF4F4;
+            border-radius: 8px;
+        }
+        tbody {
+            tr {
+                td {
+                    padding: 10px;
+                    background: #EDF4F4;
+                    border-radius: 8px;
+                    .sts-attendance__button-present {
+                        padding: 5px 10px;
+                        margin-right: 5px;
+                        border: 1px solid #27AE60;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        &.selected {
+                            background: #27AE60;
+                            color: #ffffff;
+                        }
+                    }
+                    .sts-attendance__button-absent {
+                        padding: 5px 10px;
+                        border: 1px solid #C0392B;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        &.selected {
+                            background: #C0392B;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sts-attendance__submit {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

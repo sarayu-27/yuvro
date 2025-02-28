@@ -7,6 +7,7 @@ import Syllabus from "./syllabus/Syllabus";
 import TestQuestions from "./testQuestions/TestQuestions";
 import TestResults from "./testResults/TestResults";
 import Assessment from "./assessment/Assessment";
+import EditProfile from "./editProfile/EditProfile";
 
 function StudentRoutes() {
     return(
@@ -20,6 +21,7 @@ function StudentRoutes() {
 
         <Route path="/testResults" element={<Layout><TestResults /></Layout>}/>
         <Route path="/assessment" element={<Layout><Assessment /></Layout>}/>
+        <Route path="/edit-profile" element={<Layout><EditProfile /></Layout>}/>
 
         {/* Routes without Header and Footer */}
         <Route path="/testQuestions" element={<Layout withHeaderAndFooter={false}><TestQuestions /></Layout>}/>

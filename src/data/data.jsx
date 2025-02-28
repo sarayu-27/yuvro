@@ -11,6 +11,122 @@ export const FACULTY_HEADER_MENU = [
     { label: 'Reports'},
 ];
 
+export const subjects = [
+    { label: "Java", value: "java" },
+    { label: "Python", value: "python" },
+    { label: "JavaScript", value: "javascript" },
+  ];
+  
+  export const facultySubjects = [
+    {"id":"java","subject":"Java"},
+    {"id":"sql","subject":"SQL"}
+];
+
+export const students = [
+    {"id":1,"rollNo":"A21IT001","name":"Sarayu"},
+    {"id":2,"rollNo":"A21IT002","name":"Rohith"}
+];
+export const assessmentCard = [
+    {
+      "id": 1,
+      "testTitle": "Java",
+      "description": "Questions on Strings,Arrays",
+      "subject_id":"java",
+      "questions": [
+        {
+          "id": 101,
+          "text": "What is the capital of India?",
+          "type": "choice",
+          "multipleAnswers": false,
+          "required": true,
+          "options": [
+            { "id": 1, "text": "Delhi", "correct": true },
+            { "id": 2, "text": "London", "correct": false },
+            { "id": 3, "text": "Berlin", "correct": false }
+          ]
+        },
+        {
+          "id": 102,
+          "text": "What is 2 + 2?",
+          "type": "text",
+          "correctAnswer": "4",
+          "required": true
+        }
+      ],
+      "schedule": {
+        "duration": 50,
+        "endDate":"2025-02-02",
+        "endTime":"23:04",
+        "message":"Your response is submitted",
+        "startDate": "2025-02-02",
+        "startTime":"22:34"
+      },
+      "responses":5
+    },
+    {
+      "id": 2,
+      "testTitle": "SQL",
+      "description": "Questions on Queries",
+      "subject_id":"sql",
+      "questions": [
+        {
+          "id": 101,
+          "text": "What is the capital of India?",
+          "type": "choice",
+          "multipleAnswers": false,
+          "required": true,
+          "options": [
+            { "id": 1, "text": "Delhi", "correct": true },
+            { "id": 2, "text": "London", "correct": false },
+            { "id": 3, "text": "Berlin", "correct": false }
+          ]
+        },
+        {
+          "id": 102,
+          "text": "What is 2 + 2?",
+          "type": "text",
+          "correctAnswer": "4",
+          "required": true
+        }
+      ],
+      "schedule": {
+        "duration": 30,
+        "endDate":"2025-02-02",
+        "endTime":"23:04",
+        "message":"Your response is submitted",
+        "startDate": "2025-02-02",
+        "startTime":"22:34"
+      },
+      "responses":0
+    }
+  ]
+
+export const viewQuestions = {
+  "id": 1,
+  "testTitle": "Java",
+  "description": "Questions on Strings,Arrays",
+  "questions": [
+    {
+      "id": 101,
+      "text": "What is the capital of India?",
+      "type": "choice",
+      "multipleAnswers": false,
+      "required": true,
+      "options": [
+        { "id": 1, "text": "Delhi", "correct": true },
+        { "id": 2, "text": "London", "correct": false },
+        { "id": 3, "text": "Berlin", "correct": false }
+      ]
+    },
+    {
+      "id": 102,
+      "text": "What is 2 + 2?",
+      "type": "text",
+      "correctAnswer": "4",
+      "required": true
+    }
+  ]
+}
 export const dashboardData = [
     {
       category: "",
@@ -259,3 +375,29 @@ export const assessment = [
         'completed':true
     }
 ]
+
+export const assessment_report = {
+  "student_id":1,
+  "student_name":"Sarayu",
+  "score":"80%",
+  "correct":10,
+  "wrong":10,
+  "notAttempted":10,
+  "questions":[
+      {
+          question:"What is the correct way to declare an integer variable named count with an initial value of 10?",
+          questionType:'mcq',
+          options: ["int count = 10;","integer count = 10;","count = 10;","variable int count = 10;"],
+          selectedAnswer: 2,
+          correctAnswer: 1,
+          explanation: "csgvghgkhl",
+          answerExplanation:"correct way to declare an integer variable named count with an initial value of 10 is int count=10"
+      },
+      {
+          question:"What is the correct way to declare an integer variable named count with an initial value of 10?",
+          questionType:'text',
+          explanation: "csgvghgkhl",
+          answerExplanation:"correct way to declare an integer variable named count with an initial value of 10 is int count=10"
+      }
+  ]
+}

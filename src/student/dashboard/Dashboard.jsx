@@ -1,15 +1,22 @@
 import React from "react";
 import "./Dashboard.scss";
-import { dashboardData } from "../../data/data.jsx"
+import { dashboardData,subjects } from "../../data/data.jsx"
 
 
 const Dashboard = () => {
   return (
     <div className="dashboard-container p-6">
       <h1 className="dashboard-title">My Dashboard</h1>
-      <button className="subject-dropdown rounded">
-        Subject ▼
-      </button>
+      {/* <button className="subject-dropdown rounded">
+        Subject ▼ */}
+        <select className="subject-dropdown rounded">
+      {subjects.map((subject, index) => (
+        <option key={index} value={subject.value}>
+          {subject.label}
+        </option>
+      ))}
+    </select>
+      {/* </button> */}
 
       <div className="dashboard-content mainbox">
         {dashboardData.map((section, index) => (

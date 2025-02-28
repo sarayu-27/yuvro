@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { test__topics } from '../../data/data';
 import './Test.scss';
 
@@ -8,7 +7,6 @@ const Test = () => {
     const [topicData, setTopicData] = useState([]);
     const [selectedButton, setSelectedButton] = useState('ALL TESTS PROGRESS');
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     
     const onItemClick = useCallback((event)=>{
       const value = event.target.textContent.toUpperCase();
@@ -26,7 +24,7 @@ const Test = () => {
       if (!topic.locked) {
             navigate('/student/testQuestions')
         }
-    }, [navigate,dispatch]);
+    }, [navigate]);
   const ViewResults = ((topic)=>{
     navigate('/student/testResults')
   });
@@ -54,7 +52,11 @@ const Test = () => {
                 <div key={topic.id} className={`sts-test__topic ${(topic.isLocked) ?  'disabled' : ''} ${topic.isCompleted? 'completed':''}`}>
                  <button className='sts-test__topic-button'>{topic.topic}</button>
                 {(topic.isLocked) ? (
-                <button className='sts-test__topic-test' disabled>Locked<i className='material-icons-outlined'>lock</i></button>
+                <button className='sts-test__topic-test' disabled>Locked
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                    </svg>
+                </button>
                 ) : topic.isCompleted ? (
                 <button className='sts-test__topic-test'>Finished</button>
             ):<button className='sts-test__topic-test' onClick={() => handleTopicClick(topic)}>Take Test</button> }

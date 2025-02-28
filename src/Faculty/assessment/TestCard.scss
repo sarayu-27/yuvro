@@ -1,0 +1,118 @@
+.test-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap:20px;
+    cursor: pointer;
+}
+.test-card {
+    width: 80%;
+    background: #EDF4F4;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    .test-card-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .test-card-title {
+        display: flex;
+        h3 {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+    }
+    .test-card-body {
+        display: flex;
+        gap: 20px;
+        p{
+            margin-top: 0px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            i{
+                font-size: 14px;
+                line-height: 14px;
+            }
+        }
+    }
+    .test-card-options {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        i {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .sts-settings {
+            display: block;
+            align-self: auto;
+        }
+        .sts-settings__icon {
+           margin-bottom: 0;
+           color: #282828;
+           background: none;
+           border: none;
+           position: relative;
+        }
+        .settings-panel {
+            top: 10%;
+            right: 21%;
+            z-index: 1;
+        }
+    }
+    .test-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        cursor: pointer;
+        input {
+            display: none;
+        }
+        .test-toggle-color {
+            width: 50px;
+            height: 24px;
+            border-radius: 12px;
+            position: relative;
+            display: block;
+            transition: 0.3s;
+            &.green {
+                background-color: green;
+            }
+            &.gray {
+                background-color: gray;
+            }
+        }
+        .test-toggle-circle {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+            transform: translateX(0);
+            &.enabled {
+                transform:translateX(26px);
+            }
+        }
+
+    }
+    .test-card-upload {
+        height: 24px;
+        border-radius: 4px;
+        background: #7F01A6;
+        border: 0px;
+        color: #FFFFFF;
+        cursor: pointer;
+        &.disabled {
+            background:#a488ac;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}

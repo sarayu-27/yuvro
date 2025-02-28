@@ -9,14 +9,20 @@
   }
   
   .subject-dropdown {
-    background-color: #38a169; /* Green color */
+    background-color: #2A8890;
+    border: 1px solid #282828;
     color: white;
     padding: 8px 16px;
     border-radius: 8px;
+    cursor: pointer;
+    option {
+      background: #FFFFFF;
+      color: #282828;
+    }
   }
   
   .dashboard-content {
-    width: 800px;
+    width: 80%;
   }
   
   .dashboard-section {
@@ -36,15 +42,16 @@
   }
   
   .stat-box {
-    border: 2px solid yellow;
+    border: 1px solid #FFC905;
     border-radius: 15px;
     padding: 10px;
-    width: 200px;
+    width: 240px;
     height: 100px;
   }
   
   .stat-value {
     font-size: 1.25rem;
     font-weight: bold;
+    margin-right: 30px;
   }
   

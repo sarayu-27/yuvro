@@ -64,11 +64,18 @@
              display: flex;
              align-items: center;
              color: green;
+             svg {
+                margin-right: 4px;
+                margin-top: 3px;
+             }
            }
            .wrong-answer {
              display: flex;
              align-items: center;
              color: red;
+             svg {
+                margin-top: 2px;
+             }
            }
            .not-attempted {
              display: flex;

@@ -50,11 +50,15 @@ const Syllabus = () => {
           onClick={() => !isTopicLocked && onTopicClick(item.id)}
           className={`${itemClass} ${disabledClass}`}
         >
-          {item.topic_name} {isTopicLocked && <i className="material-icons-outlined">lock</i>}
+          {item.topic_name} {isTopicLocked && 
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+          </svg>
+          }
         </li>
       );
     });
-  }, [highlightedTopic, topics]);
+  }, [highlightedTopic, topics,onTopicClick]);
 
   const renderChapterButtons = useMemo(() => {
     return chapters?.map((item) => {
@@ -71,7 +75,7 @@ const Syllabus = () => {
         </button>
       );
     });
-  }, [highlightedChapter]);
+  }, [highlightedChapter,onChapterClick]);
 
   return (
     <div className="sts-syllabus">

@@ -1,0 +1,39 @@
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #4a4a4a;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .user-icon {
+    margin-top: 2px;
+  }
+  
+  .user-dropdown {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 10;
+    padding: 10px;
+  }
+  
+  .user-dropdown .dropdown-option {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .user-dropdown .dropdown-option:hover {
+    background: #f5a623;
+  }
+  

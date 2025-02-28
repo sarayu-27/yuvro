@@ -64,11 +64,10 @@
             p {
                 margin: 0;
                 display: flex;
-                i {
-                    font-size: 14px;
+                svg {
                     color: #282828;
-                    line-height: 20px;
-                    padding-right: 4px;
+                    padding-right: 6px;
+                    margin-top: 4px;
                 }
             }
         }

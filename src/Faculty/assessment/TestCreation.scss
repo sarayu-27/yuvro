@@ -1,0 +1,239 @@
+.sts-testCreation {
+  
+    font-family: Arial, sans-serif;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  .sts-settings {
+    display: flex;
+    position: relative;
+    justify-content: end;
+    align-self: end;
+  }
+  .settings-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: lightsteelblue;
+    z-index: 1;
+    padding: 16px;
+    gap: 16px;
+    border-radius: 8px;
+    top: 90%;
+  }
+  .sts-settings__icon {
+    display: flex;
+    align-self: end;
+    background: none;
+    border: none;
+    margin-bottom: 10px;
+    color: #767676;
+    cursor: pointer;
+  }
+  .header {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    input,textarea {
+        &:focus-visible {
+        outline: none;
+        border: 1px solid #7239a4;
+        }
+    }
+  }
+  
+  .header-input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  
+  .description-input {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  
+  .header-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .header-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  /* Quick Start */
+  .quick-start {
+    // margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .quick-start-title {
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-self: start;
+    color: #7239a4;
+    margin-top: 0;
+    i {
+        color: #7239A4;
+        font-size: 14px;
+        line-height: 16px;
+    }
+  }
+  
+  .quick-start-options {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+  }
+  
+  .quick-start-options button {
+    padding: 4px 28px;
+    background-color: #20b2aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .quick-start-options button:hover {
+    background-color: #1a7a75;
+  }
+  
+  /* Questions List */
+  .questions-list {
+    margin-top: 20px;
+  }
+  
+  .question-card {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    .question-card__question {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        input{
+            &:focus-visible {
+            outline: none;
+            border: 1px solid #7239A4;
+            }
+        }
+    }
+  }
+  
+  .question-input {
+    width: 100%;
+    font-size: 16px;
+    // margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  .question-delete {
+    margin-bottom: 10px;
+    display: flex;
+    color: #dad2d2;
+    align-self: end;
+    cursor: pointer;
+  }
+  .answer-description {
+    margin-left: 18px;
+    margin-top: 10px;
+    textarea {
+        width: 60%;
+        &:focus-visible {
+            outline: none;
+            border: 1px solid #7239A4;
+        }
+    }
+  }
+  .options-list {
+    // margin-top: 10px;
+        .add-option {
+            margin-left: 12px;
+            border: none;
+            background: none;
+            margin-top: 10px;
+            color: #7239A4;
+            font-weight: 600;
+            cursor: pointer;
+        }
+   }
+  
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    margin-top: 10px;
+    gap: 10px;
+    width: 40%;
+    input[type="text"] {
+        &:focus-visible {
+            outline: none;
+            border: 1px solid #7239A4;
+        }
+    }
+  }
+  
+  .option-item input[type="text"] {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  
+  .text-answer-placeholder {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    color: #aaa;
+  }
+  
+  .question-actions {
+    display: flex;
+    justify-content: end;
+    gap:10px;
+    margin-top: 10px;
+  }
+  
+  .save-button {
+    display: flex;
+    background-color: #7239A4;
+    color: white;
+    border: none;
+    padding: 4px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: end;
+  }
+  
+  .save-button:hover {
+    background-color: #644182;
+  }
+  
+}

@@ -1,0 +1,49 @@
+.sts-assessment {
+    text-align: center;
+     h2 {
+         margin: 16px;
+         text-align: center;
+     }
+     .sts-assessment__subject {
+         padding: 8px;
+         margin: 10px;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+         font-size: 16px;
+         background: #2A8890;
+         color: #FFFFFF;
+         option {
+             background: #FFFFFF;
+             color: #282828;
+         }
+         &:focus-visible {
+             outline: none;
+         }
+     }
+     .sts-assessment__create {
+         display: flex;
+         justify-content: center;
+         &-button {
+             i {
+                 color: #47A5E8;
+             }
+             button {
+                 padding: 8px;
+                 border: none;
+                 background: none;
+                 display: flex;
+                 align-items: center;
+                 color: #47A5E8;
+                 cursor: pointer;
+                 &[disabled] {
+                    i{
+                        pointer-events: none;
+                       color: #cccccc;
+                    }
+                    pointer-events: none;
+                    color: #cccccc;
+                 }
+             }
+         }
+     }
+ }

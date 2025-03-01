@@ -6,7 +6,7 @@ import { assessmentCard } from "../../data/data";
 import Settings from "./Settings";
 // import axios from "axios";
 import "./TestCreation.scss";
-import { clearAssessment, setSubject } from "../../redux/actions";
+import { setSubject } from "../../redux/actions";
 
 function TestCreation() {
   const today = new Date().toISOString().split("T")[0]; // Get today's date
@@ -48,11 +48,12 @@ function TestCreation() {
   const dispatch = useDispatch();
   
   
-  useEffect(() => {
-    return () => {
-      dispatch(clearAssessment()); // Clears assessment_id when component unmounts
-    };
-  }, [dispatch]);
+//   useEffect(() => {
+//     return () => {
+//       dispatch(clearAssessment()); // Clears assessment_id when component unmounts
+//     };
+//   }, [dispatch]);
+
   // Fetch test data if assessment_id exists
   useEffect(() => {
     if (assessment_id) {

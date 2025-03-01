@@ -7,6 +7,7 @@ import { assessmentCard,subjects } from '../../data/data';
 import { setSubject } from "../../redux/actions";
 import './Assessment.scss';
 import Search from "./Search";
+import { clearAssessment } from "../../redux/actions";
 
 
 function Assessment() {
@@ -50,6 +51,7 @@ function Assessment() {
         fetchTests();
       }, [dispatch, navigate]);
     const onCreateTest = (()=>{
+      dispatch(clearAssessment()); 
       console.log({subjects,selectedSubject});
         const selectedSubjectObj = subjects.find((subject) => subject.label === selectedSubject);
         console.log({selectedSubjectObj});
